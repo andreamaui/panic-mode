@@ -1,0 +1,120 @@
+/* Panic Mode — stile della cover e del tasto 🕶️ */
+
+/* ---- Tasto fluttuante, in basso a destra su ogni nota ---- */
+.panic-fab {
+	position: fixed;
+	left: 18px;
+	bottom: 18px;
+	z-index: 99990;
+	width: 52px;
+	height: 52px;
+	border-radius: 50%;
+	border: 1px solid rgba(255, 255, 255, 0.25);
+	background: #F59E0B;
+	color: #1a1300;
+	font-size: 1.35rem;
+	cursor: pointer;
+	box-shadow: 0 4px 18px rgba(245, 158, 11, 0.45);
+	opacity: 0.85;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: transform 0.15s, opacity 0.15s;
+}
+.panic-fab:hover {
+	opacity: 1;
+	transform: scale(1.08);
+}
+/* Sopra la barra dei tab su mobile */
+body.is-mobile .panic-fab {
+	bottom: 92px;
+	left: 14px;
+}
+
+/* ---- Overlay a schermo intero ---- */
+.panic-overlay {
+	position: fixed;
+	inset: 0;
+	z-index: 99999;
+	background: rgba(6, 6, 10, 0.97);
+	backdrop-filter: blur(18px);
+	-webkit-backdrop-filter: blur(18px);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 14px;
+	padding: 24px;
+	text-align: center;
+}
+.panic-overlay.panic-hidden {
+	display: none;
+}
+
+.panic-lock {
+	font-size: 3rem;
+	line-height: 1;
+}
+.panic-title {
+	font-size: 1.6rem;
+	font-weight: 700;
+	color: #fff;
+}
+.panic-sub {
+	font-size: 0.95rem;
+	color: rgba(255, 255, 255, 0.65);
+	max-width: 320px;
+}
+
+.panic-input {
+	width: 240px;
+	text-align: center;
+	font-size: 1.45rem;
+	letter-spacing: 8px;
+	color: #fff;
+	background: rgba(255, 255, 255, 0.06);
+	border: 1px solid rgba(255, 255, 255, 0.25);
+	border-radius: 10px;
+	padding: 12px;
+	outline: none;
+}
+.panic-input:focus {
+	border-color: #F59E0B;
+}
+
+.panic-btn {
+	background: #F59E0B;
+	color: #1a1300;
+	border: none;
+	border-radius: 999px;
+	padding: 10px 30px;
+	font-size: 1rem;
+	font-weight: 700;
+	cursor: pointer;
+}
+.panic-btn:hover {
+	background: #ffb52e;
+}
+
+.panic-error {
+	min-height: 1.3em;
+	font-size: 0.9rem;
+	color: #ff7b72;
+}
+
+.panic-hint {
+	font-size: 0.75rem;
+	color: rgba(255, 255, 255, 0.4);
+	margin-top: 10px;
+}
+
+@keyframes panic-shake {
+	0%, 100% { transform: translateX(0); }
+	20%      { transform: translateX(-10px); }
+	40%      { transform: translateX(10px); }
+	60%      { transform: translateX(-6px); }
+	80%      { transform: translateX(6px); }
+}
+.panic-shake {
+	animation: panic-shake 0.4s;
+}
