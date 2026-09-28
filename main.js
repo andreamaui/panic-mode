@@ -159,8 +159,8 @@ class PanicModePlugin extends Plugin {
 
 		// Comando dalla Command Palette -> assegnabile a una hotkey su PC
 		this.addCommand({
-			id: 'activate-panic-mode',
-			name: 'Attiva modalità privata (panic mode)',
+			id: 'activate',
+			name: 'Activate private mode (panic mode)',
 			callback: () => this.activate(),
 		});
 	}
