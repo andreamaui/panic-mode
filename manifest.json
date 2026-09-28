@@ -3,7 +3,7 @@
   "name": "Panic Mode (Modalità Privata)",
   "version": "1.0.0",
   "minAppVersion": "1.1.0",
-  "description": "Nasconde all'istante l'intero vault con un tocco: cover scura + blur, sblocco automatico con PIN personale (hash SHA-256).",
+  "description": "One-tap privacy: dark blurred overlay instantly covers your whole vault; unlock only with your personal PIN (salted SHA-256).",
   "author": "andreamaui",
   "authorUrl": "https://github.com/andreamaui",
   "isDesktopOnly": false
