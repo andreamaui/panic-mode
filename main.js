@@ -138,14 +138,8 @@ class SetPinModal extends Modal {
 }
 
 class PanicModePlugin extends Plugin {
-	async onload() {
-		this.data = Object.assign({ salt: '', pinHash: '' }, await this.loadData());
-
-		// Salt casuale (serve a non avere due PIN uguali con lo stesso hash)
-		if (!this.data.salt) {
-			this.data.salt = this.randomSalt();
-			await this.saveData(this.data);
-		}
+	onload() {
+		this.data = Object.assign({ salt: '', pinHash: '' });
 
 		this.overlay = null;
 
@@ -162,6 +156,16 @@ class PanicModePlugin extends Plugin {
 			id: 'activate',
 			name: 'Activate private mode (panic mode)',
 			callback: () => this.activate(),
+		});
+
+		// Caricamento dati (PIN hash + salt) senza bloccare onload
+		this.loadData().then((stored) => {
+			this.data = Object.assign({ salt: '', pinHash: '' }, stored || {});
+			// Salt casuale (serve a non avere due PIN uguali con lo stesso hash)
+			if (!this.data.salt) {
+				this.data.salt = this.randomSalt();
+				this.saveData(this.data);
+			}
 		});
 	}
 
@@ -181,6 +185,12 @@ class PanicModePlugin extends Plugin {
 	}
 
 	activate() {
+		// Se i dati (salt) non sono ancora caricati, riprova tra un attimo
+		if (!this.data.salt) {
+			setTimeout(() => this.activate(), 100);
+			return;
+		}
+
 		// Primo utilizzo: il PIN va impostato
 		if (!this.data.pinHash) {
 			new SetPinModal(this.app, (pin) => {
