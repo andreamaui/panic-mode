@@ -1,54 +1,54 @@
-# Panic Mode — Modalità privata per Obsidian
+# Panic Mode — Private mode for Obsidian
 
-Un tasto 🕶️ sempre visibile che nasconde all'istante **l'intero vault** dietro una cover scura con blur. Si esce solo con un PIN numerico personale.
+An always-visible 🕶️ button that instantly hides your **entire vault** behind a dark blurred overlay. You can only exit by entering your personal numeric PIN.
 
-Funziona identico su **desktop (Windows/macOS/Linux) e mobile (iOS/Android)**.
+Works identically on **desktop (Windows/macOS/Linux)** and **mobile (iOS/Android)**.
 
-> ⚠️ **Nota onesta**: è un blocco *visivo* istantaneo, non una crittografia. Se qualcuno accede ai file del vault (es. cartella iCloud/Drive), i contenuti restano leggibili. Per proteggere l'apertura dell'app su iOS usa anche l'opzione nativa *Require Face ID* di Obsidian.
+> ⚠️ **Honest disclaimer**: this is an instant *visual* lock, not encryption. Anyone with direct access to your vault files (e.g. the iCloud/Drive folder) can still read them. On iOS, also enable Obsidian's native *Require Face ID* option to protect app opening.
 
-## Funzionalità
+## Features
 
-- 🕶️ **Tasto fluttuante** in basso a sinistra, visibile su ogni nota
-- 🔒 **Cover totale**: blur + sfondo scuro su tutto il vault
-- 🔑 **Sblocco automatico**: si esce digitando il PIN corretto, senza premere nulla
-- 🔢 PIN numerico **4-8 cifre**, salvato **solo come hash SHA-256 con salt** (mai in chiaro)
-- ⌨️ Comando da Command Palette: *"Attiva modalità privata"* → assegnabile a una hotkey su desktop
-- 🚫 Esc **non** chiude l'overlay: si esce solo col PIN
+- 🕶️ **Floating button** at the bottom-left, visible on every note
+- 🔒 **Full overlay**: blur + dark background over the whole vault
+- 🔑 **Auto unlock**: type the correct PIN and it unlocks by itself, no button press
+- 🔢 Numeric PIN **4-8 digits**, stored **only as a SHA-256 hash with salt** (never in plain text)
+- ⌨️ Command Palette command: *"Attiva modalità privata"* → assignable to a hotkey on desktop
+- 🚫 Esc **cannot** close the overlay: only the PIN can
 
-## Installazione
+## Installation
 
-### Manuale (tutte le piattaforme)
+### Manual (all platforms)
 
-1. Scarica l'ultima **release** da GitHub.
-2. Estrai la cartella `panic-mode/` in `.obsidian/plugins/` del tuo vault.
-3. Riavvia Obsidian.
-4. Impostazioni → Plugin della community → **Attiva** "Panic Mode".
+1. Download the latest **release** from GitHub.
+2. Extract the `panic-mode/` folder into `.obsidian/plugins/` inside your vault.
+3. Restart Obsidian.
+4. Settings → Community plugins → **Enable** "Panic Mode".
 
-### Via BRAT (sperimentale)
+### Via BRAT (experimental)
 
-1. Installa il plugin [BRAT](https://github.com/TfTHacker/obsidian42-brat) dal catalogo.
-2. Aggiungi questo repo come beta plugin.
-3. Cerca la nuova versione quando esce (relase → BRAT → "Check for updates").
+1. Install the [BRAT](https://github.com/TfTHacker/obsidian42-brat) plugin from the catalog.
+2. Add this repository as a beta plugin.
+3. Check for updates when a new release comes out.
 
-## Uso
+## Usage
 
-1. Premi il tasto **🕶️** (o esegui il comando *"Attiva modalità privata"*).
-2. Al primo utilizzo ti viene chiesto di **impostare il PIN** (due volte).
-3. Da quel momento, l'overlay compare su **qualunque nota**.
-4. Per uscire: digita il PIN → sblocco **automatico** appena è corretto.
+1. Press the **🕶️** button (or run the *"Attiva modalità privata"* command).
+2. On first use you'll be asked to **set your PIN** (twice).
+3. From then on, the overlay appears on **any note**.
+4. To exit: type your PIN → **auto unlock** as soon as it's correct.
 
-### PIN dimenticato?
+### Forgot your PIN?
 
-Cancella il file `.obsidian/plugins/panic-mode/data.json` e riavvia Obsidian: ti verrà chiesto di impostare un nuovo PIN.
+Delete the file `.obsidian/plugins/panic-mode/data.json` and restart Obsidian: you'll be asked to set a new PIN.
 
-## Compatibilità
+## Compatibility
 
-App Obsidian ≥ 1.1.0. Tutte le piattaforme (desktop + mobile).
+Obsidian app ≥ 1.1.0. All platforms (desktop + mobile).
 
-## Licenza
+## License
 
-MIT — vedi [LICENSE](LICENSE).
+MIT — see [LICENSE](LICENSE).
 
 ---
 
-*Plugin creato per uso personale, pubblicato perché può servire ad altri. Non raccoglie alcun dato: il PIN è salvato come hash con salt nel solo data.json locale.*
+*Built for personal use, published in case it helps others. Collects no data: the PIN is stored as a salted hash in the local data.json only.*
